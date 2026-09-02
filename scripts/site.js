@@ -12,7 +12,8 @@
   const startFrame = 24 * 60 + 18;
 
   const animate = (now, startedAt) => {
-    const elapsed = (now - startedAt) % 3000;
+    const totalElapsed = now - startedAt;
+    const elapsed = totalElapsed % 3000;
     const frame = Math.floor(elapsed / 1000 * 30);
     const total = startFrame + frame;
     const frames = total % 24;
@@ -26,7 +27,7 @@
       wordIndex = nextWord;
       words.forEach((word, index) => word.classList.toggle('is-active', index === wordIndex));
     }
-    playhead.style.left = `${elapsed / 3000 * 100}%`;
+    playhead.style.left = `${(totalElapsed % 12000) / 12000 * 100}%`;
     window.requestAnimationFrame((nextNow) => animate(nextNow, startedAt));
   };
 
