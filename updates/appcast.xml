@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+--><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>ResolveCaptionSuite</title>
+        <item>
+            <title>0.3.4</title>
+            <pubDate>Wed, 02 Sep 2026 14:40:25 -0400</pubDate>
+            <sparkle:version>39</sparkle:version>
+            <sparkle:shortVersionString>0.3.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://captioncadence.app/updates/ResolveCaptionSuite-v0.3.4.zip" length="4436070" type="application/octet-stream" sparkle:edSignature="lbvwqQsE5zpcUv7dY/SzDNolWMVKp/56P+fZwkLij4JrZASGsnhZIzyfDPi9UkEZvHFcFYDNESE+YwdqRiXmAg=="></enclosure>
+        </item>
+    </channel>
+</rss><!-- sparkle-signatures:
+edSignature: hx30q+kq3oXZyyMUojPjOsIXcPiGZl6JlRD1hHVXLmbFY742THLFWSzpbmrulmPA3j4x8dAo/5N9hIwoKyawAw==
+length: 1038
+-->
