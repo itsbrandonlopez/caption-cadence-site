@@ -21,20 +21,23 @@
   };
 
   const advance = () => {
-    frame += 1;
+    frame += 2;
     renderTime();
-    const nextWord = Math.floor(frame / 9) % (words.length + 3) - 1;
+    const cycleFrames = words.length * 9;
+    const cycleFrame = frame % cycleFrames;
+    const nextWord = Math.floor(cycleFrame / 9);
     if (nextWord !== wordIndex) {
       wordIndex = nextWord;
       words.forEach((word, index) => word.classList.toggle('is-active', index === wordIndex));
     }
-    bars.forEach((bar, index) => bar.classList.toggle('is-playing', index <= Math.floor(frame / 20) % (bars.length + 1)));
+    bars.forEach((bar, index) => bar.classList.toggle('is-playing', index === wordIndex));
+    demo.style.setProperty('--timeline-progress', cycleFrame / (cycleFrames - 1));
   };
 
   const start = () => {
     if (started) return;
     started = true;
-    timer = window.setInterval(advance, 1000 / 12);
+    timer = window.setInterval(advance, 1000 / 24);
   };
 
   const observer = new IntersectionObserver((entries) => {
