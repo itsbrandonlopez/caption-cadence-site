@@ -48,4 +48,4 @@ h2{font-size:clamp(2.4rem,6vw,5rem);letter-spacing:-.05em;line-height:.95}
 .step-number,.feature-index{font-size:1rem;letter-spacing:.1em}
 /* Resolve Caption Suite app icon branding */
 .brand{display:inline-flex;align-items:center;gap:10px}
-.brand img{width:30px;height:30px;display:block;border-radius:7px}
+.brand img{width:24px;height:24px;display:block;border-radius:6px}
