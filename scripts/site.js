@@ -10,10 +10,12 @@
   let started = false;
   let wordIndex = -1;
   const startFrame = 24 * 60 + 18;
+  const highlightDuration = 3000;
+  const pauseDuration = 2000;
 
   const animate = (now, startedAt) => {
     const totalElapsed = now - startedAt;
-    const elapsed = totalElapsed % 3000;
+    const elapsed = Math.min(totalElapsed % (highlightDuration + pauseDuration), highlightDuration - 1);
     const frame = Math.floor(elapsed / 1000 * 30);
     const total = startFrame + frame;
     const frames = total % 24;
@@ -22,7 +24,7 @@
     const hours = Math.floor(total / (24 * 60 * 60));
     time.textContent = [hours, minutes, seconds].map((n) => String(n).padStart(2, '0')).join(':') + ':' + String(frames).padStart(2, '0');
 
-    const nextWord = Math.min(words.length - 1, Math.floor(elapsed / (3000 / words.length)));
+    const nextWord = Math.min(words.length - 1, Math.floor(elapsed / (highlightDuration / words.length)));
     if (nextWord !== wordIndex) {
       wordIndex = nextWord;
       words.forEach((word, index) => word.classList.toggle('is-active', index === wordIndex));

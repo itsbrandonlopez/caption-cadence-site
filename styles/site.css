@@ -46,3 +46,6 @@ h2{font-size:clamp(2.4rem,6vw,5rem);letter-spacing:-.05em;line-height:.95}
 .timeline i,.timeline i.is-playing,.timeline i:nth-of-type(2):not(.is-playing),.timeline i:nth-of-type(4):not(.is-playing){background:var(--product);transform:none}
 .hero h1 .accent{color:inherit}
 .step-number,.feature-index{font-size:1rem;letter-spacing:.1em}
+/* Resolve Caption Suite app icon branding */
+.brand{display:inline-flex;align-items:center;gap:10px}
+.brand img{width:30px;height:30px;display:block;border-radius:7px}
