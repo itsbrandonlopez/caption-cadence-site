@@ -21,11 +21,11 @@
   };
 
   const advance = () => {
-    frame += 2;
+    frame += 1;
     renderTime();
-    const cycleFrames = words.length * 9;
+    const cycleFrames = 90; // 3 seconds at 30 updates per second
     const cycleFrame = frame % cycleFrames;
-    const nextWord = Math.floor(cycleFrame / 9);
+    const nextWord = Math.min(words.length - 1, Math.floor(cycleFrame / 10));
     if (nextWord !== wordIndex) {
       wordIndex = nextWord;
       words.forEach((word, index) => word.classList.toggle('is-active', index === wordIndex));

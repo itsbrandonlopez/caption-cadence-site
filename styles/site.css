@@ -42,3 +42,4 @@ h2{font-size:clamp(2.4rem,6vw,5rem);letter-spacing:-.05em;line-height:.95}
 .timeline{--timeline-progress:0}
 .timeline i.is-playing{background:var(--product);transform:scaleY(1.35)}
 .playhead{left:calc(18px + (100% - 36px) * var(--timeline-progress));transition:left 42ms linear}
+.timeline i:nth-of-type(2):not(.is-playing),.timeline i:nth-of-type(4):not(.is-playing){background:var(--line)}
