@@ -33,5 +33,6 @@ h2{font-size:clamp(2.4rem,6vw,5rem);letter-spacing:-.05em;line-height:.95}
 .caption-line b{background:var(--yellow);color:#000}
 .hero .status i{background:var(--product)}
 .waitlist{background:var(--accent)}
+.callout{padding-block:clamp(28px,4vw,52px);display:flex;gap:clamp(28px,7vw,100px);align-items:baseline}.callout>p:last-child{margin:0}.callout strong{color:var(--ink);font-weight:500}@media(max-width:640px){.callout{display:block}.callout>p:last-child{margin-top:18px}}
 .caption-line span{display:inline-block;transition:color .12s ease,background-color .12s ease;padding-inline:.04em}.caption-line span.is-active{background:var(--product);color:#fff}.timeline i{transition:background-color .18s ease,transform .18s ease}.timeline i.is-playing{background:var(--product);transform:scaleY(1.35)}
 @media(prefers-reduced-motion:reduce){.caption-line span,.timeline i{transition:none}}
