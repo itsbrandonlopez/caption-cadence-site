@@ -1,43 +1,40 @@
 (() => {
   const demo = document.querySelector('.demo-window');
   const time = document.querySelector('#demo-time');
+  const timeline = document.querySelector('.timeline');
+  const playhead = document.querySelector('.playhead');
   const words = [...document.querySelectorAll('#caption-demo span')];
   const bars = [...document.querySelectorAll('.timeline i')];
-  if (!demo || !time || !words.length || !bars.length) return;
+  if (!demo || !time || !timeline || !playhead || !words.length || !bars.length) return;
 
-  let timer;
   let started = false;
   let wordIndex = -1;
-  let frame = 0;
   const startFrame = 24 * 60 + 18;
 
-  const renderTime = () => {
+  const animate = (now, startedAt) => {
+    const elapsed = (now - startedAt) % 3000;
+    const frame = Math.floor(elapsed / 1000 * 30);
     const total = startFrame + frame;
     const frames = total % 24;
     const seconds = Math.floor(total / 24) % 60;
     const minutes = Math.floor(total / (24 * 60)) % 60;
     const hours = Math.floor(total / (24 * 60 * 60));
     time.textContent = [hours, minutes, seconds].map((n) => String(n).padStart(2, '0')).join(':') + ':' + String(frames).padStart(2, '0');
-  };
 
-  const advance = () => {
-    frame += 1;
-    renderTime();
-    const cycleFrames = 90; // 3 seconds at 30 updates per second
-    const cycleFrame = frame % cycleFrames;
-    const nextWord = Math.min(words.length - 1, Math.floor(cycleFrame / 10));
+    const nextWord = Math.min(words.length - 1, Math.floor(elapsed / (3000 / words.length)));
     if (nextWord !== wordIndex) {
       wordIndex = nextWord;
       words.forEach((word, index) => word.classList.toggle('is-active', index === wordIndex));
+      bars.forEach((bar, index) => bar.classList.toggle('is-playing', index === wordIndex));
     }
-    bars.forEach((bar, index) => bar.classList.toggle('is-playing', index === wordIndex));
-    demo.style.setProperty('--timeline-progress', cycleFrame / (cycleFrames - 1));
+    playhead.style.left = `${elapsed / 3000 * 100}%`;
+    window.requestAnimationFrame((nextNow) => animate(nextNow, startedAt));
   };
 
   const start = () => {
-    if (started) return;
+    if (started || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     started = true;
-    timer = window.setInterval(advance, 1000 / 24);
+    window.requestAnimationFrame((now) => animate(now, now));
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -47,8 +44,4 @@
     }
   }, { threshold: 0.35 });
   observer.observe(demo);
-
-  window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (event) => {
-    if (event.matches && timer) window.clearInterval(timer);
-  });
 })();
