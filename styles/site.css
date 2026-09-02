@@ -33,3 +33,5 @@ h2{font-size:clamp(2.4rem,6vw,5rem);letter-spacing:-.05em;line-height:.95}
 .caption-line b{background:var(--yellow);color:#000}
 .hero .status i{background:var(--product)}
 .waitlist{background:var(--accent)}
+.caption-line span{display:inline-block;transition:color .12s ease,background-color .12s ease;padding-inline:.04em}.caption-line span.is-active{background:var(--product);color:#fff}.timeline i{transition:background-color .18s ease,transform .18s ease}.timeline i.is-playing{background:var(--product);transform:scaleY(1.35)}
+@media(prefers-reduced-motion:reduce){.caption-line span,.timeline i{transition:none}}
