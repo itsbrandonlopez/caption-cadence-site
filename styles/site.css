@@ -27,3 +27,9 @@ h2{font-size:clamp(2.4rem,6vw,5rem);letter-spacing:-.05em;line-height:.95}
 .timeline i:nth-of-type(2),.timeline i:nth-of-type(4){background:var(--product)}
 .playhead{border-color:var(--product)}
 .demo-window{border-color:rgba(168,85,247,.55)}
+/* Purple is the primary product color; acid yellow is the occasional timing highlight. */
+:root{--accent:#a855f7;--product:#c084fc;--yellow:#e9ff4f}
+.accent{color:var(--yellow)}
+.caption-line b{background:var(--yellow);color:#000}
+.hero .status i{background:var(--product)}
+.waitlist{background:var(--accent)}
