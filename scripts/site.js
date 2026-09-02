@@ -25,7 +25,6 @@
     if (nextWord !== wordIndex) {
       wordIndex = nextWord;
       words.forEach((word, index) => word.classList.toggle('is-active', index === wordIndex));
-      bars.forEach((bar, index) => bar.classList.toggle('is-playing', index === wordIndex));
     }
     playhead.style.left = `${elapsed / 3000 * 100}%`;
     window.requestAnimationFrame((nextNow) => animate(nextNow, startedAt));
